@@ -1,3 +1,4 @@
+<%@page import="br.com.fiap.dsaouda.javaweb.model.Usuario"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
@@ -24,7 +25,7 @@
           <!-- Add spacer, to align navigation to the right in desktop -->
           <div class="mdl-layout-spacer"></div>
 
-          Nome do Usuário (Sair)
+          <%=((Usuario)session.getAttribute("usuario")).getNome() %>&nbsp;&nbsp;<a href="<c:url value="/logout" />">(Sair)</a>
 
         </div>
       </div>
