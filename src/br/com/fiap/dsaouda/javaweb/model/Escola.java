@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="escola")
@@ -27,6 +28,7 @@ public class Escola implements Serializable {
 	@Column(unique=true, nullable=false)
 	private String uuid;
 	
+	@Size(min = 2, message="Nome não pode ser menor que 2 caracteres")
 	@Column(length=255,nullable=false)
 	private String nome;
 	

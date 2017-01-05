@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="https://getmdl.io/assets/components.css">
     <link rel="stylesheet" href="<c:url value="/css/styles.css"/>">
     
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
     <style>
     	a {
     		text-decoration: none;
     	}
     </style>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-tabs is-upgraded">

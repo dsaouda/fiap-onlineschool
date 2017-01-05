@@ -44,24 +44,18 @@
 					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-acoes-${escola.id}">
 					 
 						<li class="mdl-menu__item">
-							<a href="#">
-								<i class="material-icons">note_add</i>
-								Adicionar curso
-							</a>
+							<i class="material-icons">note_add</i>
+							Adicionar curso
 						</li>
 						
-						<li class="mdl-menu__item" href="http://google.com.br">
-							<a href="<c:url value="./escola/cadastro?uuid=${escola.uuid}" />">
-								<i class="material-icons">border_color</i>
-								Editar
-							</a>
+						<li class="mdl-menu__item link" data-href="<c:url value="./escola/cadastro?uuid=${escola.uuid}" />">
+							<i class="material-icons">border_color</i>
+							Editar
 						</li>
 						
 						<li class="mdl-menu__item show-dialog" data-escola-id="${escola.id}" data-url="<c:url value="./escola/cadastro?uuid=${escola.uuid}"/>">
-							<a href="#">
-								<i class="material-icons">delete</i>
-								Remover
-							</a>
+							<i class="material-icons">delete</i>
+							Remover
 						</li>
 					 
 					</ul>

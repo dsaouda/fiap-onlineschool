@@ -6,10 +6,13 @@
 <form method="post">
 	<div>
 		<div
-			class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ${errors.nome.isInvalid()}">
 			<input class="mdl-textfield__input" type="text" value="${escola.nome}" id="nome"
 				name="nome"> <label class="mdl-textfield__label"
 				for="nome">Nome da Escola</label>
+				
+			<span class="mdl-textfield__error">${errors.nome.getMessage()}</span>	
+			
 		</div>
 	</div>
 

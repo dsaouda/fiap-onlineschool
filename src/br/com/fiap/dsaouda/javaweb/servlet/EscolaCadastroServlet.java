@@ -13,6 +13,8 @@ import br.com.fiap.dsaouda.javaweb.dao.EscolaDao;
 import br.com.fiap.dsaouda.javaweb.factory.JpaUtil;
 import br.com.fiap.dsaouda.javaweb.model.Escola;
 import br.com.fiap.dsaouda.javaweb.util.Dispatcher;
+import br.com.fiap.dsaouda.javaweb.validator.SimpleValidation;
+import br.com.fiap.dsaouda.javaweb.validator.SimpleValidationException;
 
 @WebServlet("/admin/escola/cadastro")
 public class EscolaCadastroServlet extends HttpServlet {
@@ -20,8 +22,6 @@ public class EscolaCadastroServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("GET");
-		
 		String uuid = request.getParameter("uuid");
 		
 		if (uuid != null && !uuid.isEmpty()) {
@@ -45,12 +45,19 @@ public class EscolaCadastroServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("post");
-		
 		EscolaDao dao = new EscolaDao(JpaUtil.getEntityManager());
 		Escola escola = getEscola(request, dao);
 		
 		try {
+			
+			SimpleValidation<Escola> validation = new SimpleValidation<>(escola);
+			
+			if (!validation.isValid()) {
+				request.setAttribute("escola", escola);
+				request.setAttribute("errors", validation.getErrors());
+				throw new SimpleValidationException();
+			}
+			
 			dao.salvar(escola);
 			response.sendRedirect("../escola");
 		} catch (RuntimeException e) {
@@ -64,7 +71,7 @@ public class EscolaCadastroServlet extends HttpServlet {
 		String observacao = request.getParameter("observacao");
 		
 		//criar nova escola
-		if (uuid == null || uuid.isEmpty()) {
+		if (uuid == null || uuid.isEmpty()) {			
 			return new Escola(nome, observacao);	
 		} 
 		
@@ -73,6 +80,7 @@ public class EscolaCadastroServlet extends HttpServlet {
 			Escola escola = dao.buscarPorUUID(uuid);
 			escola.setNome(nome)
 			.setObservacao(observacao);
+			
 			return escola;
 		} catch (NoResultException e) {
 			throw new ServletException("Não foi possível salvar a escola");

@@ -1,6 +1,12 @@
 </main>
     </div>
 
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script>
+    	$('.mdl-menu__item.link').click(function(e) {
+    		e.preventDefault();
+    		var href = $(this).data('href');
+    		window.location.href = href;
+    	});
+    </script>
   </body>
 </html>
