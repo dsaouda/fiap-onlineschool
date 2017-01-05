@@ -46,11 +46,10 @@
           Online School
         </span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Escolas</a>
-          <a class="mdl-navigation__link" href="">Cursos</a>
-          <a class="mdl-navigation__link" href="">Disciplinas</a>
-          <a class="mdl-navigation__link" href="">Professores</a>
-          <a class="mdl-navigation__link" href="">Alunos</a>
+          <a class="mdl-navigation__link" href="<c:url value="/admin/escola" />">Escolas</a>
+          <a class="mdl-navigation__link" href="<c:url value="/admin/curso" />">Cursos</a>
+          <a class="mdl-navigation__link" href="<c:url value="/admin/disciplina" />">Disciplinas</a>
+          <a class="mdl-navigation__link" href="<c:url value="/admin/usuario" />">Usuários</a>
         </nav>
       </div>
 

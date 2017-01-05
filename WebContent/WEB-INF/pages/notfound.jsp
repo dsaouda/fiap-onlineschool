@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,16 +13,25 @@
 	href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 <link rel="stylesheet"
 	href="https://code.getmdl.io/1.3.0/material.min.css">
-<link rel="stylesheet" href="styles.css">
+	
+	<link rel="stylesheet" href="https://getmdl.io/assets/components.css">
+	<link rel="stylesheet" href="<c:url value="/css/styles.css"/>">
 </head>
 <body>
-
-	<div style="margin: 0 auto; margin-top: 100px;" class="mdl-card mdl-shadow--6dp">
-		<h1>Página não encontrada</h1>
+	
+	<br>
+	<div class="mdl-components__warning" style="font-size: 30px; text-align: center; padding: 50px;">
+		Página não encontrada
 	</div>
-
+	
+	<div style="text-align: center;">
+		<br>
+		<a href="<c:url value="/admin/home"/>" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Clique aqui para continuar</a>
+	</div>
+	
 	<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </body>
 </html>

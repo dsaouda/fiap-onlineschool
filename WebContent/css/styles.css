@@ -2,3 +2,11 @@
     width: 90%;
     margin: 0 auto;
 }
+
+.ds-info {
+	width:100%;
+	background-color:#c9d7fa;
+	padding:16px;
+	border-radius:2px;
+	color:#212121;
+}
