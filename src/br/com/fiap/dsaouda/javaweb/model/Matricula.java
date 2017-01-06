@@ -22,11 +22,11 @@ public class Matricula implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name = "id_curso")
 	private Curso curso;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	

@@ -1,5 +1,7 @@
 package br.com.fiap.dsaouda.javaweb.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -16,4 +18,11 @@ public class UsuarioDao extends AbstractDao<Usuario, Long> {
 		query.setParameter("email", email);
 		return query.getSingleResult();
 	}
+	
+	public List<Usuario> getListComum() {
+		TypedQuery<Usuario> query = em.createQuery("from Usuario where admin = false", Usuario.class);
+		return query.getResultList();
+	}
+	
+	
 }

@@ -1,6 +1,6 @@
 </main>
 
-
+<!--  
 <footer class="mdl-mini-footer">
   <div class="mdl-mini-footer__left-section">
     <div class="mdl-logo">fiap-onlineschool</div>
@@ -9,7 +9,7 @@
     </ul>
   </div>
 </footer>
-
+-->
 
     </div>
     

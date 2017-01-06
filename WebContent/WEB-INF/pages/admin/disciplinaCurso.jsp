@@ -3,70 +3,60 @@
 
 <c:import url="/WEB-INF/templates/header.jsp" />
 
-<h2>${escola.nome}</h2>
-${escola.observacao}
+<h2>${curso.nome}</h2>
 
-<h4>Cursos</h4>
+<h4>Disciplinas</h4>
 
-<a href="<c:url value="/admin/curso/cadastro?escola=${escola.uuid}" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+<a href="<c:url value="/admin/disciplina/cadastro?curso=${curso.uuid}" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 	<i class="material-icons">note_add</i>
- 	Adicionar novo curso
+ 	Adicionar novo disciplina
 </a>
 
-<a href="<c:url value="/admin/curso" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+<a href="<c:url value="/admin/disciplina" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 	<i class="material-icons">swap_horiz</i>
- 	Selecionar outra escola
+ 	Selecionar outra curso
 </a>
 
 
 
-<c:if test="${cursos.size() == 0}">
+<c:if test="${disciplinas.size() == 0}">
 <div class="mdl-components__warning">
-	Nenhum curso cadastrado!!!
+	Nenhum disciplina cadastrado!!!
 </div>
 </c:if>
 
-<c:if test="${cursos.size() > 0}">
+<c:if test="${disciplinas.size() > 0}">
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 600px;">
 		<thead>
 			<tr>
 				<th>ID</th>
 				<th class="mdl-data-table__cell--non-numeric">Nome</th>
-				<th class="mdl-data-table__cell--non-numeric">Carga Horária</th>
-				<th class="mdl-data-table__cell--non-numeric">Sobre</th>
+				<th class="mdl-data-table__cell--non-numeric">Professor</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${cursos}" var="curso">
+			<c:forEach items="${disciplinas}" var="disciplina">
 			<tr>
-				<td>${curso.id}</td>
-				<td class="mdl-data-table__cell--non-numeric">${curso.nome}</td>
-				<td class="mdl-data-table__cell--non-numeric">${curso.cargaHoraria}h</td>
+				<td>${disciplina.id}</td>
+				<td class="mdl-data-table__cell--non-numeric">${disciplina.nome}</td>
+				<td class="mdl-data-table__cell--non-numeric">${disciplina.professor.nome}</td>
 				<td class="mdl-data-table__cell--non-numeric">
-					<i class="icon material-icons" title="${curso.sobre}">info</i>
-				</td>
-				<td class="mdl-data-table__cell--non-numeric">
-					<div class="mdl-spinner mdl-js-spinner is-active remove-${curso.id}" style="display: none;"></div>
+					<div class="mdl-spinner mdl-js-spinner is-active remove-${disciplina.id}" style="display: none;"></div>
 					
-					<button id="menu-acoes-${curso.id}"
+					<button id="menu-acoes-${disciplina.id}"
 					        class="mdl-button mdl-js-button mdl-button--icon">
 					  <i class="material-icons">more_vert</i>
 					</button>
 					
-					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-acoes-${curso.id}">
+					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-acoes-${disciplina.id}">
 					 
-					 	<li class="mdl-menu__item link" data-href="<c:url value="./disciplina/cadastro?curso=${curso.uuid}" />">
-							<i class="material-icons">note_add</i>
-							Adicionar disciplina
-						</li>
-						
-						<li class="mdl-menu__item link" data-href="<c:url value="./curso/cadastro?uuid=${curso.uuid}&escola=${escola.uuid}" />">
+						<li class="mdl-menu__item link" data-href="<c:url value="./disciplina/cadastro?uuid=${disciplina.uuid}&curso=${curso.uuid}" />">
 							<i class="material-icons">border_color</i>
 							Editar
 						</li>
 						
-						<li class="mdl-menu__item show-dialog" data-curso-id="${curso.id}" data-url="<c:url value="./curso/cadastro?uuid=${curso.uuid}"/>">
+						<li class="mdl-menu__item show-dialog" data-disciplina-id="${disciplina.id}" data-url="<c:url value="./disciplina/cadastro?uuid=${disciplina.uuid}"/>">
 							<i class="material-icons">delete</i>
 							Remover
 						</li>
@@ -113,14 +103,14 @@ ${escola.observacao}
 	  	dialog.querySelector('.yes').addEventListener('click', function() {
 	  		dialog.close();
 			
-	  		$('.remove-' + $self.data('cursoId')).show();
+	  		$('.remove-' + $self.data('disciplinaId')).show();
 	  		$self[0].outerHTML = '';
 	  		
 			$.ajax({
 			    url: url,
 			    type: 'DELETE',
 			    success: function(result) {
-			    	window.location.href = "./curso?escola=${escola.uuid}";
+			    	window.location.href = "./disciplina?curso=${curso.uuid}";
 			    }
 			});
 		});

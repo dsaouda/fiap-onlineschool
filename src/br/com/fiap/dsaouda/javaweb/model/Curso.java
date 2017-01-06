@@ -50,7 +50,7 @@ public class Curso implements Serializable {
 	private int cargaHoraria = 0;
 	
 	@NotNull
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name = "id_escola")
 	private Escola escola;
 	
