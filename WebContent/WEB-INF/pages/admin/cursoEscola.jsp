@@ -6,7 +6,7 @@
 <h2>${escola.nome}</h2>
 ${escola.observacao}
 
-<h4>Cursos</h4>
+<h4>Cursos (${cursos.size()})</h4>
 
 <a href="<c:url value="/admin/curso/cadastro?escola=${escola.uuid}" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 	<i class="material-icons">note_add</i>
@@ -34,6 +34,8 @@ ${escola.observacao}
 				<th class="mdl-data-table__cell--non-numeric">Nome</th>
 				<th class="mdl-data-table__cell--non-numeric">Carga Horária</th>
 				<th class="mdl-data-table__cell--non-numeric">Sobre</th>
+				<th>Disciplinas</th>
+				<th>Alunos</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
@@ -46,6 +48,8 @@ ${escola.observacao}
 				<td class="mdl-data-table__cell--non-numeric">
 					<i class="icon material-icons" title="${curso.sobre}">info</i>
 				</td>
+				<td>${curso.disciplinas.size()}</td>
+				<td>${curso.matriculas.size()}</td>
 				<td class="mdl-data-table__cell--non-numeric">
 					<div class="mdl-spinner mdl-js-spinner is-active remove-${curso.id}" style="display: none;"></div>
 					
@@ -56,11 +60,16 @@ ${escola.observacao}
 					
 					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-acoes-${curso.id}">
 					 
-					 	<li class="mdl-menu__item link" data-href="<c:url value="./disciplina/cadastro?curso=${curso.uuid}" />">
-							<i class="material-icons">note_add</i>
-							Adicionar disciplina
+					 	<li class="mdl-menu__item link" data-href="<c:url value="./disciplina?curso=${curso.uuid}" />">
+							<i class="material-icons">school</i>
+							Disciplinas
 						</li>
 						
+						<li class="mdl-menu__item link" data-href="<c:url value="./matricula?curso=${curso.uuid}" />">
+							<i class="material-icons">list</i>
+							Matrículas
+						</li>
+							
 						<li class="mdl-menu__item link" data-href="<c:url value="./curso/cadastro?uuid=${curso.uuid}&escola=${escola.uuid}" />">
 							<i class="material-icons">border_color</i>
 							Editar

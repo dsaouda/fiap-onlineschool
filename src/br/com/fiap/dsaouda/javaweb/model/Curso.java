@@ -57,6 +57,9 @@ public class Curso implements Serializable {
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="curso")
 	private Set<Disciplina> disciplinas = new HashSet<>();
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="curso")
+	private Set<Matricula> matriculas = new HashSet<>();
+	
 	@Deprecated //JPA Only
 	protected Curso() {}
 	
@@ -99,6 +102,10 @@ public class Curso implements Serializable {
 
 	public Set<Disciplina> getDisciplinas() {
 		return disciplinas;
+	}
+	
+	public Set<Matricula> getMatriculas() {
+		return matriculas;
 	}
 
 	public Curso setNome(String nome) {

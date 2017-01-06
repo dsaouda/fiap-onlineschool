@@ -12,9 +12,9 @@
  	Adicionar novo disciplina
 </a>
 
-<a href="<c:url value="/admin/disciplina" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+<a href="<c:url value="/admin/curso" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 	<i class="material-icons">swap_horiz</i>
- 	Selecionar outra curso
+ 	Selecionar outro curso
 </a>
 
 
@@ -32,7 +32,7 @@
 				<th>ID</th>
 				<th class="mdl-data-table__cell--non-numeric">Nome</th>
 				<th class="mdl-data-table__cell--non-numeric">Professor</th>
-				<th>Ações</th>
+				<th class="mdl-data-table__cell--non-numeric">Ações</th>
 			</tr>
 		</thead>
 		<tbody>
