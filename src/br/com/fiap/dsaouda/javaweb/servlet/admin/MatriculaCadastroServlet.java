@@ -1,4 +1,4 @@
-package br.com.fiap.dsaouda.javaweb.servlet;
+package br.com.fiap.dsaouda.javaweb.servlet.admin;
 
 import java.io.IOException;
 import java.util.HashSet;
