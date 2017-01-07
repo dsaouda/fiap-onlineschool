@@ -29,7 +29,13 @@ public class MatriculaDao extends AbstractDao<Matricula, Long> {
 			throw e;
 		}
 	}
-
+	
+	public List<Matricula> byAluno(long id) {
+		TypedQuery<Matricula> query = em.createQuery("from Matricula where aluno.id = :id", Matricula.class);
+		query.setParameter("id", id);
+		return query.getResultList();
+	}
+	
 	public List<Matricula> byCurso(String cursoUUID) {
 		TypedQuery<Matricula> query = em.createQuery("from Matricula where curso.uuid = :uuid", Matricula.class);
 		query.setParameter("uuid", cursoUUID);
