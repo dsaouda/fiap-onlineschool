@@ -45,7 +45,7 @@
 					 
 						<li class="mdl-menu__item link" data-href="<c:url value="./curso/cadastro?escola=${escola.uuid}" />">
 							<i class="material-icons">note_add</i>
-							Adicionar curso
+							Curso
 						</li>
 						
 						<li class="mdl-menu__item link" data-href="<c:url value="./escola/cadastro?uuid=${escola.uuid}" />">
