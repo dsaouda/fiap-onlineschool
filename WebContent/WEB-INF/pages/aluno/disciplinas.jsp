@@ -17,9 +17,26 @@
 		</h3>
 		
 		<p><strong>Professor</strong> ${disciplina.professor.nome}</p>
-		<a href="<c:url value="/aluno/disciplinas?curso=${matricula.curso.uuid}" />" class="ui positive button">Conteúdo Programático</a>
-		
-	</c:forEach>
+		<a data-id="${disciplina.id}" href="#" class="ui positive button">Conteúdo Programático</a>
+
+		<div class="ui modal ${disciplina.id}">
+			<i class="close icon"></i>
+			<div class="header">Conteúdo Programático</div>
+			<div class="image content">
+				<div class="description">
+					<div class="ui header">Detalhe</div>
+					${disciplina.conteudoProgramaticoMarkdown}
+				</div>
+			</div>
+		</div>
 	
+</c:forEach>
+
+<script>
+	$('.ui.positive.button').click(function(e) {
+		e.preventDefault();
+		$('.ui.modal.'+$(this).data('id')).modal('show');
+	});
+</script>	
 
 <c:import url="/WEB-INF/templates/aluno/footer.jsp" />

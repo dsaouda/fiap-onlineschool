@@ -20,7 +20,12 @@
 			<label class="mdl-textfield__label" for="conteudoProgramatico">Conteúdo Programático</label>
 			<span class="mdl-textfield__error">${errors.conteudoProgramatico.getMessage()}</span>
 		</div>
+		
+		<a href="https://guides.github.com/features/mastering-markdown/" target="_blank" title="Esse campo aceita Markdown">
+			<i class="material-icons" style="vertical-align: top;">info</i>
+		</a>
 	</div>
+	
 	
 	<div>
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ${errors.professor.isInvalid()}">
