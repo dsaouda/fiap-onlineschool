@@ -18,4 +18,10 @@ public class DisciplinaDao extends AbstractDao<Disciplina, Long> {
 		query.setParameter("uuid", cursoUUID);
 		return query.getResultList();
 	}
+
+	public List<Disciplina> byProfessor(long professorId) {
+		TypedQuery<Disciplina> query = em.createQuery("from Disciplina where professor.id = :id", Disciplina.class);
+		query.setParameter("id", professorId);
+		return query.getResultList();
+	}
 }
