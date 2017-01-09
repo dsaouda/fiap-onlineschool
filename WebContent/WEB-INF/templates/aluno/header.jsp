@@ -9,7 +9,7 @@
   <title>OnlineSchool - Aluno</title>
 
   <link rel="stylesheet" type="text/css" href="<c:url value="/plugins/semantic-ui/semantic.min.css" />">
-  
+  <link rel="stylesheet" href="<c:url value="/css/styles.css"/>">
   <style type="text/css">
   body {
     background-color: #FFFFFF;
@@ -28,7 +28,9 @@
     padding: 5em 0em;
   }
   </style>
-
+	
+  <script src="<c:url value="/plugins/jquery/jquery-3.1.1.min.js"/>"></script>
+  <script src="<c:url value="/plugins/semantic-ui/semantic.min.js"/>"></script>	
 </head>
 <body>
 

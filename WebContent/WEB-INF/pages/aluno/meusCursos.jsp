@@ -16,7 +16,7 @@
 	<div class="ui buttons">
 		<a href="<c:url value="/aluno/disciplinas?curso=${matricula.curso.uuid}" />" class="ui button">Disciplinas</a>
 		<div class="or" data-text="ou"></div>
-		<a href="<c:url value="/aluno/disciplinas?curso=${matricula.curso.uuid}" />" class="ui positive button">Boletim</a>
+		<a href="<c:url value="/aluno/boletim?curso=${matricula.curso.uuid}" />" class="ui positive button">Boletim</a>
 	</div>
 	
 	<div class="ui clearing divider"></div>

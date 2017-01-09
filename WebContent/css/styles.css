@@ -10,3 +10,10 @@
 	border-radius:2px;
 	color:#212121;
 }
+
+.ds-obs {
+	font-size: 11px;
+	font-style: italic;
+	color: #ccc;
+	margin-top: -10px;
+}

@@ -15,6 +15,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -105,5 +108,12 @@ public class Disciplina implements Serializable {
 
 	public String getUuid() {
 		return uuid;
+	}
+	
+	public String getConteudoProgramaticoMarkdown() {
+		Parser parser = Parser.builder().build();
+		Node document = parser.parse(conteudoProgramatico);
+		HtmlRenderer renderer = HtmlRenderer.builder().build();
+		return renderer.render(document);
 	}
 }
