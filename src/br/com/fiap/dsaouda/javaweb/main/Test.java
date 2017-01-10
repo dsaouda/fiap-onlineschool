@@ -1,13 +1,21 @@
 package br.com.fiap.dsaouda.javaweb.main;
-import org.commonmark.node.*;
-import org.commonmark.parser.Parser;
-import org.commonmark.renderer.html.HtmlRenderer;
+import javax.persistence.EntityManager;
+
+import br.com.fiap.dsaouda.javaweb.dao.NotaDao;
+import br.com.fiap.dsaouda.javaweb.factory.JpaUtil;
 
 public class Test {
 	public static void main(String[] args) {
-		Parser parser = Parser.builder().build();
-		Node document = parser.parse(" - Teste");
-		HtmlRenderer renderer = HtmlRenderer.builder().build();
-		System.out.println(renderer.render(document));
+		EntityManager em = JpaUtil.getEntityManager();
+		NotaDao notaDao = new NotaDao(em);
+		
+		notaDao.getNotaAlunosDiciplina(2L).forEach(n -> {
+			System.out.println("==================");
+			System.out.println(n.getUsuario().getNome());
+			System.out.println(n.getNota().getProjeto1());
+			System.out.println(n.getNota().getProjeto2());
+			System.out.println(n.getNota().getAtividadePratica());
+		});
+		
 	}
 }

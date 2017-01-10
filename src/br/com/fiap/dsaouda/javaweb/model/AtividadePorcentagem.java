@@ -1,16 +1,18 @@
 package br.com.fiap.dsaouda.javaweb.model;
 
+import java.math.BigDecimal;
+
 public enum AtividadePorcentagem {
 
 	PROJETO1(0.3f), ATIVIDADEPRATICA(0.3f), PROJETO2(0.4f);
 	
-	private float porcentagem;
+	private BigDecimal porcentagem;
 
 	AtividadePorcentagem(float porcentagem) {
-		this.porcentagem = porcentagem;
+		this.porcentagem = new BigDecimal(porcentagem);
 	}
 	
-	public float getPorcentagem() {
+	public BigDecimal getPorcentagem() {
 		return porcentagem;
 	}
 }

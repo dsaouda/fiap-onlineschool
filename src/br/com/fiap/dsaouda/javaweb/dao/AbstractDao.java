@@ -19,9 +19,7 @@ public class AbstractDao<T, ID> {
 	
 	public void salvar(T entity) {
 		try {
-			em.getTransaction().begin();
 			em.persist(entity);
-			em.getTransaction().commit();
 		} catch (Exception e) {
 			throw e;
 		}

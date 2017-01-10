@@ -1,5 +1,7 @@
 package br.com.fiap.dsaouda.javaweb.dto;
 
+import java.math.BigDecimal;
+
 import br.com.fiap.dsaouda.javaweb.model.Disciplina;
 import br.com.fiap.dsaouda.javaweb.model.Nota;
 
@@ -18,20 +20,20 @@ public class DisciplinaNotaDTO {
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
-	public float getProjeto1() {
+	public BigDecimal getProjeto1() {
 		return nota.getProjeto1();
 	}
-	public float getAtividadePratica() {
+	public BigDecimal getAtividadePratica() {
 		return nota.getAtividadePratica();
 	}
-	public float getProjeto2() {
+	public BigDecimal getProjeto2() {
 		return nota.getProjeto2();
 	}
 	public String getStatus() {
 		return nota.getStatus();
 	}
 	
-	public float getMedia() {
+	public BigDecimal getMedia() {
 		return nota.getMedia();
 	}
 }

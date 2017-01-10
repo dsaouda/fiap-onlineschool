@@ -1,13 +1,17 @@
 package br.com.fiap.dsaouda.javaweb.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -49,6 +53,12 @@ public class Usuario implements Serializable {
 
 	@Column(nullable=false)
 	private boolean admin = false;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")
+	private Set<Nota> notas = new HashSet<>();
+			
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="aluno")
+	private Set<Matricula> matriculas = new HashSet<>();
 	
 	@Deprecated //JPA ONLY
 	protected Usuario() {}
@@ -111,6 +121,14 @@ public class Usuario implements Serializable {
 	public boolean isSenhaValida(String senhaVisivel) {
 		String hash = this.getSenha();
 		return BCrypt.checkpw(senhaVisivel, hash);
+	}
+	
+	public Set<Nota> getNotas() {
+		return notas;
+	}
+	
+	public Set<Matricula> getMatriculas() {
+		return matriculas;
 	}
 	
 	@Override

@@ -17,7 +17,7 @@ import br.com.fiap.dsaouda.javaweb.util.Dispatcher;
 @WebServlet("/aluno/meus-cursos")
 public class MeusCursosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final long aluno = 2L;
+	private static final long aluno = 1L;
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

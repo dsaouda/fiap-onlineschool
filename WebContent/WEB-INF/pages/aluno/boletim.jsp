@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="h" %>
 
 <c:import url="/WEB-INF/templates/aluno/header.jsp" />
@@ -29,10 +30,18 @@
 					${nota.disciplina.nome} 
 					<br><span class="ds-obs">${nota.disciplina.professor.nome}</span>
 				</td>
-				<td>${nota.projeto1}</td>
-				<td>${nota.atividadePratica}</td>
-				<td>${nota.projeto2}</td>
-				<td>${nota.media}</td>
+				<td>
+					<fmt:formatNumber value="${nota.projeto1}" pattern="##.##" />				
+				</td>
+				<td>
+					<fmt:formatNumber value="${nota.atividadePratica}" pattern="##.##" />					
+				</td>
+				<td>
+					<fmt:formatNumber value="${nota.projeto2}" pattern="##.##" />
+				</td>
+				<td>
+					<fmt:formatNumber value="${nota.media}" pattern="##.##" />					
+				</td>
 				<td>${nota.status}</td>
 			</tr>
 		</c:forEach>

@@ -25,7 +25,7 @@ public class BoletimServlet extends HttpServlet {
 		Curso curso = new CursoDao(em).buscarPorUUID(cursoUUID);
 		
 		request.setAttribute("curso", curso);
-		request.setAttribute("notas", new NotaDao(em).getNotasAluno(cursoUUID, 2));
+		request.setAttribute("notas", new NotaDao(em).getNotasAluno(cursoUUID, 1));
 		Dispatcher.forward(request, response, "/aluno/boletim.jsp");
 	}
 }
