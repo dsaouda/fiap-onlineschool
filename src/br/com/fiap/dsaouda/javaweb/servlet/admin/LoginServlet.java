@@ -14,7 +14,7 @@ import br.com.fiap.dsaouda.javaweb.dao.UsuarioDao;
 import br.com.fiap.dsaouda.javaweb.factory.JpaUtil;
 import br.com.fiap.dsaouda.javaweb.model.Usuario;
 
-@WebServlet("/login")
+@WebServlet("/admin/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -25,12 +25,12 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/admin/login.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/admin/login.jsp");
 		
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");

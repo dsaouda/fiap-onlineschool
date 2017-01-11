@@ -29,7 +29,7 @@
 	
 	<div style="text-align: center;">
 		<br>
-		<a href="<c:url value="/admin/home"/>" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Clique aqui para continuar</a>
+		<a href="#" onclick="history.back();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Clique aqui para continuar</a>
 	</div>
 	
 	<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>

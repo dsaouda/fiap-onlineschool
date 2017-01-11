@@ -1,4 +1,4 @@
-package br.com.fiap.dsaouda.javaweb.servlet.admin;
+package br.com.fiap.dsaouda.javaweb.servlet;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
+@WebServlet("/aaa")
 public class NotFoundServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
