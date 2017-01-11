@@ -25,7 +25,7 @@ public class NotaDao extends AbstractDao<Nota, Long> {
 		return query.getResultList();		
 	}
 	
-	public List<DisciplinaNotaDTO> getNotasAluno(String cursoUUID, long usuarioId) {
+	public List<DisciplinaNotaDTO> getNotasAluno(String cursoUUID, long alunoId) {
 		TypedQuery<Disciplina> query = em.createQuery("from Disciplina where curso.uuid = :uuid", Disciplina.class);
 		query.setParameter("uuid", cursoUUID);
 		
@@ -39,7 +39,7 @@ public class NotaDao extends AbstractDao<Nota, Long> {
 			
 			TypedQuery<Nota> q = em.createQuery("from Nota where disciplina.id = :disciplina AND usuario.id = :usuario", Nota.class);
 			q.setParameter("disciplina", d.getId());
-			q.setParameter("usuario", usuarioId);
+			q.setParameter("usuario", alunoId);
 			
 			try {
 				dto.setNota(q.getSingleResult());

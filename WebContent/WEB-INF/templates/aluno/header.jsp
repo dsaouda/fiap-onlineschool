@@ -41,6 +41,7 @@
         OnlineSchool - Aluno
       </a>
       <a href="<c:url value="/aluno/meus-cursos" />" class="item">Meus Cursos</a>
+      <a href="<c:url value="/logout" />" class="item">Sair</a>
     </div>
   </div>
 

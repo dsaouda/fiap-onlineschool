@@ -1,5 +1,7 @@
 package br.com.fiap.dsaouda.javaweb.servlet.professor;
 
+import static br.com.fiap.dsaouda.javaweb.exception.DisciplinaNaoEhDoProfessorException.throwsSeDisciplinaNaoForDoProfessor;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
@@ -28,12 +30,16 @@ public class AvaliarServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = JpaUtil.getEntityManager();
-		String disciplinaUUID = request.getParameter("disciplina");
+		HttpSession session = request.getSession();
 		
-		Disciplina disciplina = new DisciplinaDao(em).buscarPorUUID(disciplinaUUID);
+		String disciplinaUUID = request.getParameter("disciplina");		
+		Disciplina disciplina = new DisciplinaDao(em).buscarPorUUID(disciplinaUUID);		
+		Usuario professor = getProfessor(request);
+		
+		throwsSeDisciplinaNaoForDoProfessor(disciplina, professor);
+		
 		List<NotaAlunosDisciplinaDTO> notaAlunosDiciplina = new NotaDao(em).getNotaAlunosDiciplina(disciplina.getId());
 		
-		HttpSession session = request.getSession();
 		request.setAttribute("mensagem", session.getAttribute("mensagem"));
 		session.removeAttribute("mensagem");
 		
@@ -52,6 +58,10 @@ public class AvaliarServlet extends HttpServlet {
 		String disciplinaUUID = request.getParameter("disciplina");
 		
 		Disciplina disciplina = new DisciplinaDao(em).buscarPorUUID(disciplinaUUID);
+		
+		Usuario professor = getProfessor(request);
+		
+		throwsSeDisciplinaNaoForDoProfessor(disciplina, professor);
 		
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
@@ -79,5 +89,11 @@ public class AvaliarServlet extends HttpServlet {
 		request.getSession().setAttribute("mensagem", "Notas atualizadas com sucesso!");
 		
 		response.sendRedirect(request.getHeader("referer"));
+	}
+
+	private Usuario getProfessor(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Usuario professor = (Usuario) session.getAttribute("usuario");
+		return professor;
 	}	
 }
