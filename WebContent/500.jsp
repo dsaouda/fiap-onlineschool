@@ -1,3 +1,4 @@
+<%@page import="br.com.fiap.dsaouda.javaweb.exception.MensagemException"%>
 <%@ page isErrorPage="true" import="java.io.*" contentType="text/html" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
@@ -34,8 +35,12 @@
 	
 	<br>
 	<div class="mdl-components__warning" style="font-size: 30px; text-align: center; padding: 50px; background-color: #efa28f;">
+		<% if (exception instanceof MensagemException) { %>
+			<span style="font-size: 15px;"><%= exception.getMessage() %></span>
+		<% } else {  %>	
 		OPS! 
 		<br><span style="font-size: 15px;">Ocorreu um erro no servidor. Estamos analisando o problema.</span>
+		<% } %>
 	</div>
 	
 	<div style="text-align: center;">

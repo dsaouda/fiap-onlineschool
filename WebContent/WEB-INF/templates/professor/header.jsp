@@ -1,3 +1,4 @@
+<%@page import="br.com.fiap.dsaouda.javaweb.model.Usuario"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,12 @@
 				Professor</a>
 
 			<ul class="right hide-on-med-and-down">
+				<li>
+					<% Usuario usuario = (Usuario)session.getAttribute("usuario"); %>	
+	          		Professor ${usuario.getNome()}
+	          		&nbsp;
+	          		&nbsp;
+				</li>
 				<li><a href="<c:url value="/logout" />">Logout</a></li>
 			</ul>
 

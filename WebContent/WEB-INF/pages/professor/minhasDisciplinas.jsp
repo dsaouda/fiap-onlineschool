@@ -12,7 +12,7 @@
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text">
 						<span class="card-title">${disciplina.nome}</span>
-						<div>${disciplina.conteudoProgramatico}</div>
+						<div>${disciplina.conteudoProgramaticoMarkdown}</div>
 					</div>
 					<div class="card-action">
 						<a href="<c:url value="/professor/avaliar?disciplina=${disciplina.uuid}" />">

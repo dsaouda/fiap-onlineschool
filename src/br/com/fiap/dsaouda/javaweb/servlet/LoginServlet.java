@@ -49,7 +49,8 @@ abstract public class LoginServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + redirect);
 			
 		} catch (RuntimeException e) {
-			request.setAttribute("error", e);
+			request.setAttribute("headerLogin", header);
+			request.setAttribute("error", e.getMessage());
 			rd.forward(request, response);
 		}
 	}

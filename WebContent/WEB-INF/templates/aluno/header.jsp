@@ -1,3 +1,4 @@
+<%@page import="br.com.fiap.dsaouda.javaweb.model.Usuario"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -38,8 +39,10 @@
     <div class="ui container">
       <a href="#" class="header item">
         <img class="logo" src="<c:url value="/plugins/semantic-ui/logo.png" />">
-        OnlineSchool - Aluno
+        <% Usuario usuario = (Usuario)session.getAttribute("usuario"); %>
+        OnlineSchool - Aluno ${usuario.getNome()}
       </a>
+      
       <a href="<c:url value="/aluno/meus-cursos" />" class="item">Meus Cursos</a>
       <a href="<c:url value="/logout" />" class="item">Sair</a>
     </div>
