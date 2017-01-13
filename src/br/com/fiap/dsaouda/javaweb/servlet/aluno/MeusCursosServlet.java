@@ -23,7 +23,7 @@ public class MeusCursosServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		Usuario usuario = (Usuario) session.getAttribute("usuarioSession");
 		
 		EntityManager em = JpaUtil.getEntityManager();		
 		List<Matricula> matriculas = new MatriculaDao(em).byAluno(usuario.getId());

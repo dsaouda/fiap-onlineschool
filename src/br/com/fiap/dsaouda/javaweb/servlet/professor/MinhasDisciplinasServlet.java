@@ -24,7 +24,7 @@ public class MinhasDisciplinasServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = JpaUtil.getEntityManager();
 		HttpSession session = request.getSession();
-		Usuario professor = (Usuario) session.getAttribute("usuario");
+		Usuario professor = (Usuario) session.getAttribute("usuarioSession");
 		List<Disciplina> disciplinas = new DisciplinaDao(em).byProfessor(professor.getId());
 		
 		request.setAttribute("disciplinas", disciplinas);

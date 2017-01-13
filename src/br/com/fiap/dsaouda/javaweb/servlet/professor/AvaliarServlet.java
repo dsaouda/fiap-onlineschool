@@ -81,7 +81,7 @@ public class AvaliarServlet extends HttpServlet {
 				nota.setAtividadePratica(new BigDecimal(atividadePratica));
 				nota.setProjeto2(new BigDecimal(projeto2));
 				
-				notaDao.salvar(nota);
+				notaDao.salvarSemTransacao(nota);
 			} catch (NumberFormatException e) {}
 		}
 		
@@ -93,7 +93,7 @@ public class AvaliarServlet extends HttpServlet {
 
 	private Usuario getProfessor(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		Usuario professor = (Usuario) session.getAttribute("usuario");
+		Usuario professor = (Usuario) session.getAttribute("usuarioSession");
 		return professor;
 	}	
 }

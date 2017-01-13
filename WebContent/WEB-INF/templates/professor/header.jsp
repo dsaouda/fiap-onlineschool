@@ -1,4 +1,3 @@
-<%@page import="br.com.fiap.dsaouda.javaweb.model.Usuario"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +26,7 @@
 
 			<ul class="right hide-on-med-and-down">
 				<li>
-					<% Usuario usuario = (Usuario)session.getAttribute("usuario"); %>	
-	          		Professor ${usuario.getNome()}
+	          		Professor ${usuarioSession.getNome()}
 	          		&nbsp;
 	          		&nbsp;
 				</li>

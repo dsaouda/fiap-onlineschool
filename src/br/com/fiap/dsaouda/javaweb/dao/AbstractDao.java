@@ -17,9 +17,19 @@ public class AbstractDao<T, ID> {
 		this.persistedClass = persistedClass;
 	}
 	
-	public void salvar(T entity) {
+	public void salvarSemTransacao(T entity) {
 		try {
 			em.persist(entity);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	public void salvar(T entity) {
+		try {
+			em.getTransaction().begin();
+			em.persist(entity);
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			throw e;
 		}

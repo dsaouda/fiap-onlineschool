@@ -45,7 +45,7 @@ abstract public class LoginServlet extends HttpServlet {
 			
 			regraExtraDeValidacao(request, response, usuario);
 			
-			session.setAttribute("usuario", usuario);
+			session.setAttribute("usuarioSession", usuario);
 			response.sendRedirect(request.getContextPath() + redirect);
 			
 		} catch (RuntimeException e) {

@@ -27,7 +27,7 @@ public class BoletimServlet extends HttpServlet {
 		Curso curso = new CursoDao(em).buscarPorUUID(cursoUUID);
 		
 		HttpSession session = request.getSession();
-		Usuario aluno = (Usuario) session.getAttribute("usuario");
+		Usuario aluno = (Usuario) session.getAttribute("usuarioSession");
 		
 		request.setAttribute("curso", curso);		
 		request.setAttribute("notas", new NotaDao(em).getNotasAluno(cursoUUID, aluno.getId()));

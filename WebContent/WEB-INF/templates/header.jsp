@@ -38,8 +38,7 @@
           <!-- Add spacer, to align navigation to the right in desktop -->
           <div class="mdl-layout-spacer"></div>
 
-		  <% Usuario usuario = (Usuario)session.getAttribute("usuario"); %>	
-          ${usuario.getNome()}&nbsp;&nbsp;<a href="<c:url value="/logout" />">(Sair)</a>
+          ${usuarioSession.getNome()}&nbsp;&nbsp;<a href="<c:url value="/logout" />">(Sair)</a>
 
         </div>
       </div>
