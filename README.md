@@ -7,11 +7,6 @@ Trabalho Java na WEB
 - Renomear arquivo src/META-INF/persistence.xml.dist para src/META-INF/persistence.xml
 - Configurar o arquivo src/META-INF/persistence.xml de acordo com seu ambiente
 	
-	Principais propriedades
-	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://HOST:3306/DATABASE" />
-	<property name="javax.persistence.jdbc.user" value="USUARIO" />
-	<property name="javax.persistence.jdbc.password" value="SENHA" />
-
 ## Database
 
 - Criar um database no mysql com o nome *fiap_online_school*
