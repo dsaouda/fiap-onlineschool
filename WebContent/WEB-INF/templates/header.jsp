@@ -48,6 +48,7 @@
           Online School
         </span>
         <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="<c:url value="/admin/home" />">Home</a>
           <a class="mdl-navigation__link" href="<c:url value="/admin/escola" />">Escolas</a>
           <a class="mdl-navigation__link" href="<c:url value="/admin/curso" />">Cursos</a>
           <a class="mdl-navigation__link" href="<c:url value="/admin/usuario" />">Usuários</a>

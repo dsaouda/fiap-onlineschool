@@ -33,9 +33,9 @@ public final class LoggerListener implements ServletRequestListener {
     	HttpSession session = http.getSession();
     	
     	String ip = request.getRemoteAddr();
-    	String url = http.getRequestURL().toString();
+    	String url = http.getRequestURI().toString();
     	String metodo = http.getMethod();
-    	String servletName = http.getServletPath();
+    	String info = http.getQueryString();
     	
     	Logger logger;
     	
@@ -43,13 +43,10 @@ public final class LoggerListener implements ServletRequestListener {
     	if (usuario != null) {
     		String perfil = (String) session.getAttribute("perfil");
     		
-    		System.out.println(usuario.getId());
-    		System.out.println(perfil);
-    		
-    		logger = new Logger(usuario, perfil, ip, url, metodo, servletName);
+    		logger = new Logger(usuario, perfil, ip, url, metodo, info);
     		
     	} else {
-    		logger = new Logger(ip, url, metodo, servletName);
+    		logger = new Logger(ip, url, metodo, info);
     	}
     	
     	loggerDao.salvar(logger);

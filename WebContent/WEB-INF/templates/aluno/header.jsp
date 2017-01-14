@@ -39,10 +39,8 @@
     <div class="ui container">
       <a href="#" class="header item">
         <img class="logo" src="<c:url value="/plugins/semantic-ui/logo.png" />">
-        <% Usuario usuario = (Usuario)session.getAttribute("usuario"); %>
-        OnlineSchool - Aluno ${usuario.getNome()}
+        OnlineSchool - Aluno: ${usuarioSession.getNome()}
       </a>
-      
       <a href="<c:url value="/aluno/meus-cursos" />" class="item">Meus Cursos</a>
       <a href="<c:url value="/logout" />" class="item">Sair</a>
     </div>

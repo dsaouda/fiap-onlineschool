@@ -19,11 +19,11 @@
 						<th class="center">Projeto 1</th>
 						<th class="center">Atividade Prática</th>
 						<th class="center">Projeto 2</th>
-						<th class="center" title="Valor informativo">
+						<th class="center" title="Valor informativo. Não editável">
 							Média
 							<i class="material-icons">info_outline</i>
 						</th>
-						<th class="center" title="Valor informativo">
+						<th class="center" title="Valor informativo. Não editável">
 							Status
 							<i class="material-icons">info_outline</i>
 						</th>

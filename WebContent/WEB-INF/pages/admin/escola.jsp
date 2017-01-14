@@ -43,9 +43,9 @@
 					
 					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-acoes-${escola.id}">
 					 
-						<li class="mdl-menu__item link" data-href="<c:url value="./curso/cadastro?escola=${escola.uuid}" />">
+						<li class="mdl-menu__item link" data-href="<c:url value="./curso?escola=${escola.uuid}" />">
 							<i class="material-icons">note_add</i>
-							Curso
+							Cursos
 						</li>
 						
 						<li class="mdl-menu__item link" data-href="<c:url value="./escola/cadastro?uuid=${escola.uuid}" />">

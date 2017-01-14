@@ -14,7 +14,7 @@
 
 <c:if test="${escolas.size() > 0}">
 
-<h5>Escolha uma escola para o cadastro do curso</h5>
+<h5>Escolha uma escola para visualizar os cursos</h5>
 
 <ul class="demo-list-three mdl-list">
   <c:forEach items="${escolas}" var="escola">

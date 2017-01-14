@@ -45,29 +45,32 @@ public class Logger implements Serializable {
 	@Column(unique=false, nullable=false)
 	private String metodo;
 	
-	@Column(unique=false, nullable=false)
-	private String servletName;
+	@Column(unique=false, nullable=true)
+	private String info;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(unique=false, nullable=false)
 	private Date dataEvento = new Date();
-
-	public Logger(Usuario usuario, String perfil, String ip, String url, String metodo, String servletName) {
+	
+	@Deprecated //JPA ONLY
+	protected Logger() {}
+	
+	public Logger(Usuario usuario, String perfil, String ip, String url, String metodo, String info) {
 		this.usuario = usuario;
 		this.perfil = perfil;
 		this.ip = ip;
 		this.url = url;
 		this.metodo = metodo;
-		this.servletName = servletName;
+		this.info = info;
 		
 		uuid = UUID.randomUUID().toString();
 	}
 
-	public Logger(String ip, String url, String metodo, String servletName) {
+	public Logger(String ip, String url, String metodo, String info) {
 		this.ip = ip;
 		this.url = url;
 		this.metodo = metodo;
-		this.servletName = servletName;
+		this.info = info;
 		
 		uuid = UUID.randomUUID().toString();
 	}
@@ -100,8 +103,12 @@ public class Logger implements Serializable {
 		return metodo;
 	}
 
-	public String getServletName() {
-		return servletName;
+	public String getInfo() {
+		return info;
+	}
+	
+	public Date getDataEvento() {
+		return dataEvento;
 	}
 
 	@Override
@@ -112,6 +119,6 @@ public class Logger implements Serializable {
 		}
 		
 		return "Logger [usuario=" + email + ", perfil=" + perfil + ", ip=" + ip
-				+ ", url=" + url + ", metodo=" + metodo + ", servletName=" + servletName + "]";
+				+ ", url=" + url + ", metodo=" + metodo + ", info=" + info + "]";
 	}
 }

@@ -19,9 +19,15 @@ public class NotaDao extends AbstractDao<Nota, Long> {
 		super(em, Nota.class);
 	}
 	
-	public List<NotaAlunosDisciplinaDTO> getNotaAlunosDiciplina(long disciplinaId) {		
-		TypedQuery<NotaAlunosDisciplinaDTO> query = em.createQuery("SELECT NEW br.com.fiap.dsaouda.javaweb.dto.NotaAlunosDisciplinaDTO(u, n) FROM Usuario u LEFT JOIN u.notas n WITH n.disciplina.id = :disciplina JOIN u.matriculas m", NotaAlunosDisciplinaDTO.class);
-		query.setParameter("disciplina", disciplinaId);		
+	public List<NotaAlunosDisciplinaDTO> getNotaAlunosDiciplina(long disciplinaId) {
+		Disciplina disciplina = em.getReference(Disciplina.class, disciplinaId);
+		
+		String jpql = "SELECT NEW br.com.fiap.dsaouda.javaweb.dto.NotaAlunosDisciplinaDTO(u, n) FROM Usuario u LEFT JOIN u.notas n WITH n.disciplina.id = :disciplina JOIN u.matriculas m WHERE m.curso.id = :curso";
+		
+		TypedQuery<NotaAlunosDisciplinaDTO> query = em.createQuery(jpql, NotaAlunosDisciplinaDTO.class);
+		query.setParameter("disciplina", disciplina.getId());		
+		query.setParameter("curso", disciplina.getCurso().getId());
+		
 		return query.getResultList();		
 	}
 	
