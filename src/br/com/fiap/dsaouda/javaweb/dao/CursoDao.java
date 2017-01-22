@@ -18,4 +18,10 @@ public class CursoDao extends AbstractDao<Curso, Long> {
 		query.setParameter("uuid", escolaUUID);
 		return query.getResultList();
 	}
+
+	public List<Curso> byProfessor(long professorId) {
+		TypedQuery<Curso> query = em.createQuery("select c from Curso c join c.disciplinas d where d.professor.id = :professor", Curso.class);
+		query.setParameter("professor", professorId);
+		return query.getResultList();
+	}
 }

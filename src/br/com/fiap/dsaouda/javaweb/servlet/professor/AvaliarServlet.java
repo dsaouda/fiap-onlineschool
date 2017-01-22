@@ -3,7 +3,6 @@ package br.com.fiap.dsaouda.javaweb.servlet.professor;
 import static br.com.fiap.dsaouda.javaweb.exception.DisciplinaNaoEhDoProfessorException.throwsSeDisciplinaNaoForDoProfessor;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -75,14 +74,13 @@ public class AvaliarServlet extends HttpServlet {
 			String atividadePratica = request.getParameter("atividadePratica["+usuarioId+"]");
 			String projeto2 = request.getParameter("projeto2["+usuarioId+"]");
 			
-			try {
-				Nota nota = new Nota(usuario, disciplina);
-				nota.setProjeto1(new BigDecimal(projeto1));
-				nota.setAtividadePratica(new BigDecimal(atividadePratica));
-				nota.setProjeto2(new BigDecimal(projeto2));
-				
-				notaDao.salvarSemTransacao(nota);
-			} catch (NumberFormatException e) {}
+			Nota nota = new Nota(usuario, disciplina);
+			
+			nota.setProjeto1(projeto1);
+			nota.setAtividadePratica(atividadePratica);
+			nota.setProjeto2(projeto2);
+			
+			notaDao.salvarSemTransacao(nota);
 		}
 		
 		transaction.commit();

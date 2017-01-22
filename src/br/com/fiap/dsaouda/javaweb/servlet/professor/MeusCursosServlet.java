@@ -11,33 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.fiap.dsaouda.javaweb.dao.DisciplinaDao;
+import br.com.fiap.dsaouda.javaweb.dao.CursoDao;
 import br.com.fiap.dsaouda.javaweb.factory.JpaUtil;
-import br.com.fiap.dsaouda.javaweb.model.Disciplina;
+import br.com.fiap.dsaouda.javaweb.model.Curso;
 import br.com.fiap.dsaouda.javaweb.model.Usuario;
 import br.com.fiap.dsaouda.javaweb.util.Dispatcher;
 
-@WebServlet("/professor/minhas-disciplinas")
-public class MinhasDisciplinasServlet extends HttpServlet {
+@WebServlet("/professor/meus-cursos")
+public class MeusCursosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = JpaUtil.getEntityManager();
-		DisciplinaDao disciplinaDao = new DisciplinaDao(em);
-		
 		HttpSession session = request.getSession();
 		Usuario professor = (Usuario) session.getAttribute("usuarioSession");
+		List<Curso> cursos = new CursoDao(em).byProfessor(professor.getId());
 		
-		String cursoUUID = request.getParameter("curso");
-		List<Disciplina> disciplinas;
-		
-		if (cursoUUID != null && !cursoUUID.trim().isEmpty()) {
-			 disciplinas = disciplinaDao.byProfessor(professor.getId(), cursoUUID);
-		} else {
-			disciplinas = disciplinaDao.byProfessor(professor.getId());
-		}
-		
-		request.setAttribute("disciplinas", disciplinas);
-		Dispatcher.forward(request, response, "/professor/minhasDisciplinas.jsp");
+		request.setAttribute("cursos", cursos);
+		Dispatcher.forward(request, response, "/professor/meusCursos.jsp");
 	}
 }

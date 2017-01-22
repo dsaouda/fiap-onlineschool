@@ -72,24 +72,32 @@ public class Nota implements Serializable {
 		return projeto1;
 	}
 
-	public void setProjeto1(BigDecimal projeto1) {
-		this.projeto1 = projeto1;
+	public void setProjeto1(String projeto1) {
+		this.projeto1 = toBigDecimalOrNull(projeto1);
+	}
+
+	private BigDecimal toBigDecimalOrNull(String valor) {
+		try {
+			return new BigDecimal(valor);
+		} catch (NumberFormatException e) {
+			return null;
+		}
 	}
 
 	public BigDecimal getProjeto2() {
 		return projeto2;
 	}
 
-	public void setProjeto2(BigDecimal projeto2) {
-		this.projeto2 = projeto2;
+	public void setProjeto2(String projeto2) {
+		this.projeto2 = toBigDecimalOrNull(projeto2);
 	}
 
 	public BigDecimal getAtividadePratica() {
 		return atividadePratica;
 	}
 
-	public void setAtividadePratica(BigDecimal atividadePratica) {
-		this.atividadePratica = atividadePratica;
+	public void setAtividadePratica(String atividadePratica) {
+		this.atividadePratica = toBigDecimalOrNull(atividadePratica);
 	}
 
 	public Usuario getUsuario() {

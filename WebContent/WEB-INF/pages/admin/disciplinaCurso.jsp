@@ -12,9 +12,9 @@
  	Adicionar novo disciplina
 </a>
 
-<a href="<c:url value="/admin/curso" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+<a href="<c:url value="/admin/curso?escola=${curso.escola.uuid}" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 	<i class="material-icons">swap_horiz</i>
- 	Selecionar outro curso
+ 	Listar cursos
 </a>
 
 

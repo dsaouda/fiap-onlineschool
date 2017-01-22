@@ -5,12 +5,13 @@
 	
 	<h2 class="header orange-text">Minhas Disciplinas</h2>
 	
-	<c:forEach items="${disciplinas}" var="disciplina">
-	
-		<div class="row">
-			<div class="col s12 m6">
+	<div class="row">
+		<c:forEach items="${disciplinas}" var="disciplina">
+			
+			<div class="col s12">
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text">
+						<span>${disciplina.curso.nome}</span><br>
 						<span class="card-title">${disciplina.nome}</span>
 						<div>${disciplina.conteudoProgramaticoMarkdown}</div>
 					</div>
@@ -21,8 +22,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		
-	</c:forEach>
+			
+		</c:forEach>
+	</div>
 
 <c:import url="/WEB-INF/templates/professor/footer.jsp" />

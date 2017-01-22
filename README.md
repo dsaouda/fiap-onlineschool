@@ -25,27 +25,15 @@ Para o site inicial foi utilizado bootstrap (http://getbootstrap.com/)
 
 	mysql -uUSUARIO -pSENHA -dBANCO_DE_DADOS < database/script.sql	
 	
-## Utilização
+## Acessos
 
 O sistema está dividido em 3 perfis:
- - admin
- - aluno
- - professor
- 
- Para acessar o sistema em um desses perfis utilize as informações abaixo:
- 	
-**admin**
-	
-	admin@fiap.com.br / 1234 
-  	
-**aluno**
+ - admin (admin@fiap.com.br / 1234)
+ - aluno (aluno@fiap.com.br / 1234)
+ - professor (professor@fiap.com.br / 1234)
 
-	aluno@fiap.com.br / 1234
-  	
-**professor**
+Obs: Login e Senha entre parênteses
 
-	professor@fiap.com.br / 1234
-	
 ## Suporte
 
 O sistema foi feito utilizando java 8 e tomcat 8.5.
@@ -58,4 +46,4 @@ Após iniciar o tomcat basta acessar o endereço http://localhost:8080/fiap-java-w
 
 ## Observações
 
-Caso não tenha importado o banco de dados você pode executar a classe br.com.fiap.dsaouda.javaweb.fixture.Bootstrap para que o banco de dados seja criado e dados iniciais sejam cadastrados. Os dados iniciais podem ser conferidos na seção utilização.
+Caso não tenha importado o banco de dados você pode executar a classe br.com.fiap.dsaouda.javaweb.fixture.Bootstrap, o banco de dados será criado e dados iniciais serão cadastrados. Os dados iniciais podem ser conferidos na seção acessos.

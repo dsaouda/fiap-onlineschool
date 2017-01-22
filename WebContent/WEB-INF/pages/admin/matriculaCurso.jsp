@@ -6,7 +6,7 @@
 
 <h2>${curso.nome}</h2>
 
-<h4>Matriculas</h4>
+<h4>Matriculas (Alunos)</h4>
 
 <a href="<c:url value="/admin/matricula/cadastro?curso=${curso.uuid}" />" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 	<i class="material-icons">note_add</i>

@@ -30,6 +30,8 @@
 	          		&nbsp;
 	          		&nbsp;
 				</li>
+				<li><a href="<c:url value="/professor/meus-cursos" />">Meus Cursos</a></li>
+				<li><a href="<c:url value="/professor/minhas-disciplinas" />">Minhas Disciplinas</a></li>
 				<li><a href="<c:url value="/logout" />">Logout</a></li>
 			</ul>
 
